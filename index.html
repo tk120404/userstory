@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" ng-app="scrumstory">
 <head>
-	<title>Scrum User Story</title>
+	<title>ng-causeway</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 	<script src="script/app.js"></script>
@@ -28,7 +28,7 @@
 			<!--Final template -->
 			<div ng-show="finalTextShow" style="background-color: #2EEB15;left: 80px;outline: 1px solid rgba(255, 255, 255, 0.5);position: absolute;text-align: center;top:135px;left:500px;width: 155px;z-index: 99;">Press CTRL-C to copy</div>
 			<div ng-show="finalTextShow" style="border-bottom: transparent;border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 5px solid #2EEB15;top:155px;left: 570px;outline: none;margin: 0 0 0 -5px;position: absolute;"></div>
-			<input ng-show="finalTextShow" style="width:90%;border:0px solid #ff0000;font-size:36px" 										ng-model="finalText" auto-select="finalTextShow" ng-click="highlightMe($event)"> </input>
+			<input ng-show="finalTextShow" style="width:100%;border:0px solid #ff0000;font-size:16px" 										ng-model="finalText" auto-select="finalTextShow" ng-click="highlightMe($event)"> </input>
 
 			<h1><hr /><h1>
 
