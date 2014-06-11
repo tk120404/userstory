@@ -1,6 +1,6 @@
 (function(){
 
-	var app = angular.module('scrumstory', []);
+	var app = angular.module('scrumstory', ['ui.bootstrap']);
 
 	app.controller('TemplateController',function($scope,$element){
 
@@ -9,6 +9,8 @@
 			$scope.blockquoteHide=false;
 			$scope.finalText = "";
 			$scope.finalTextShow = false;
+			$scope.roles = ['user','developer','end-user','admin','teacher','engineer','artist','PO','manager','doctor','vendor','scientist'
+							];
 		
 		
 		$scope.isSelected = function(template)
