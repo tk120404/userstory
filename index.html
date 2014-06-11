@@ -3,8 +3,9 @@
 <head>
 	<title>Scrum User Story</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 	<script src="script/app.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<style>
 		input:focus{
@@ -26,15 +27,24 @@
 			</blockquote>
 			<br><br><br>
 			<!--Final template -->
-			<div ng-show="finalTextShow" style="background-color: #2EEB15;left: 80px;outline: 1px solid rgba(255, 255, 255, 0.5);position: absolute;text-align: center;top:135px;left:500px;width: 155px;z-index: 99;">Press CTRL-C to copy</div>
-			<div ng-show="finalTextShow" style="border-bottom: transparent;border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 5px solid #2EEB15;top:155px;left: 570px;outline: none;margin: 0 0 0 -5px;position: absolute;"></div>
-			<textarea ng-show="finalTextShow" style="width:100%;border:0px solid #ff0000;font-size:16px" 						readonly ng-model="finalText" auto-select="finalTextShow" ng-click="highlightMe($event)"> </textarea>
+		<!--	<div ng-show="finalTextShow" style="background-color: #2EEB15;left: 80px;outline: 1px solid rgba(255, 255, 255, 0.5);text-align: center;top:135px;left:500px;width: 155px;z-index: 99;">Press CTRL-C to copy</div>
+			<div ng-show="finalTextShow" style="border-bottom: transparent;border-left: 5px solid transparent;border-right: 5px solid transparent;border-top: 5px solid #2EEB15;top:155px;left: 570px;outline: none;margin: 0 0 0 -5px;"></div> 
+			<div ng-show="finalTextShow" style="top: 249px; left: -13.5px; display: block;">
+				<div class="arrow"></div>
+
+				<div class="popover-inner">
+					<h3 class="popover-title" ></h3>
+					<div class="popover-content" >On the Top!</div>
+				</div>
+			</div> -->
+			<textarea ng-show="finalTextShow" style="width:100%;border:0px solid #ff0000;font-size:16px;text-align:center;"	readonly ng-model="finalText" auto-select="finalTextShow" ng-click="highlightMe($event)"
+			tooltip="Press CTRL-C to copy"  tooltip-trigger="select" tooltip-placement="top"> </textarea>
 
 			<h1><hr /></h1>
 
 				<h4>As a </h4>
 				<fieldset class="form-group">
-					<input ng-model="story.role" class="form-control" placeholder="role" title="Role" required />
+					<input ng-model="story.role" class="form-control" placeholder="role" title="Role" required  typeahead="role for role in roles | filter:$viewValue"/>
 				</fieldset><h4>I want </h4>
 				<fieldset class="form-group">
 					<textarea ng-model="story.goal" class="form-control" placeholder="goal/desire" title="Goal/Desire" required > </textarea>
@@ -54,3 +64,9 @@
 
 </body>
 </html>
+
+
+<div ng-show="finalTextShow" style="background-color: #2EEB15;left: 80px;outline: 1px solid rgba(255, 255, 255, 0.5);position: a
+-                       <div ng-show="finalTextShow" style="border-bottom: transparent;border-left: 5px solid transparent;border-right: 5px solid transp
++                       <div ng-show="finalTextShow" style="background-color: #2EEB15;left: 80px;outline: 1px solid rgba(255, 255, 255, 0.5);text-align:
++                       <div ng-show="finalTextShow" style="border-bottom: transparent;border-left: 5px solid transparent;border-right: 5px solid transp
