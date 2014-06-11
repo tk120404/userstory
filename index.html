@@ -15,7 +15,7 @@
 	</style>
 </head>
 <body>
-	<div class="container theme-showcase" role="main" ng-controller="TemplateController as template">
+	<div class="container theme-showcase" role="main" ng-controller="TemplateController">
 		<h1>User Story Template</h1>
 		<h2><hr /></h2>
 		<form ng-controller="TemplateController" novalidate>
@@ -30,7 +30,7 @@
 			<!--Final template -->
 		
 			<textarea ng-show="finalTextShow" style="width:100%;border:0px solid #ff0000;font-size:16px;text-align:center;"	readonly ng-model="finalText" auto-select="finalTextShow" ng-click="highlightMe($event)"
-			tooltip="Press CTRL-C to copy"  tooltip-trigger="select" tooltip-placement="top"> </textarea>
+			tooltip="{{(finalTextShow) ? 'Press CTRL-C to copy' : ''}}"  tooltip-trigger="select" tooltip-placement="top"> </textarea>
 
 			<h1><hr /></h1>
 
