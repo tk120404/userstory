@@ -1,0 +1,33 @@
+<form  novalidate>
+			<!-- Live Preview -->
+
+			<blockquote ng-hide="blockquoteHide">
+				As a <strong> {{story.role}}</strong>  I want 
+				<strong> {{story.goal}}</strong>
+				so that <strong>   {{story.benefit}} </strong>
+			</blockquote>
+			
+			<!--Final template -->
+	
+			<textarea ng-show="finalTextShow" style="width:100%;border:0px solid #ff0000;font-size:16px;text-align:center;"	readonly ng-model="finalText" auto-select="finalTextShow" ng-click="highlightMe($event)"
+			tooltip="{{(finalTextShow) ? 'Press CTRL-C to copy' : ''}}"  tooltip-trigger="select" tooltip-placement="top"> </textarea>
+
+			<h1><hr /></h1>
+
+				<h4>As a </h4>
+				<fieldset class="form-group">
+					<input ng-model="story.role" class="form-control" placeholder="role" title="Role" required  typeahead="role for role in roles | filter:$viewValue"/>
+				</fieldset><h4>I want </h4>
+				<fieldset class="form-group">
+					<textarea ng-model="story.goal" class="form-control" placeholder="goal/desire" title="Goal/Desire" required > </textarea>
+				</fieldset><h4>so that </h4>
+				<fieldset class="form-group">
+					<textarea  ng-model="story.benefit"  class="form-control" placeholder="benefit" 
+					title="Benefit" > </textarea>
+				</fieldset>	
+
+				<fieldset class="form-group">
+					<button ng-click="storyReady()" ng-disabled="isDisable()" class="btn btn-primary btn-lg">Done</button>
+					<button ng-click="reset()" class="btn btn-warning btn-lg">Reset</button>
+				</fieldset>
+		</form>

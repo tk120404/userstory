@@ -4,8 +4,9 @@
 	<title>Scrum User Story</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-	<script src="script/app.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+	<script src="script/angular-ui-router.min.js"></script>
+	<script src="script/app.js"></script>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<style>
 		input:focus{
@@ -14,50 +15,21 @@
 	</style>
 </head>
 <body>
-	<div class="container theme-showcase" role="main" ng-controller="TemplateController">
+	<div class="container theme-showcase" role="main">
 		<h1>User Story Template</h1>
 		<h2><hr /></h2>
 		<ul class="nav nav-pills nav-justified">
-			<li class="active"><a href="#">Template 1</a></li>
-			<li><a href="#">Template 2</a></li>
-			<li><a href="#">Template 3</a></li>
-			<li><a href="#">Template 4</a></li>
+			<li><a ui-sref="template1">Template 1</a></li>	
+			<li><a ui-sref="template2">Template 2</a></li>
+			<li><a ui-sref="template3">Template 3</a></li>
+			<li><a ui-sref="template4">Template 4</a></li>
+
+
+
 		</ul>
 		<h2><hr /></h2>
 
-		<form ng-controller="TemplateController" novalidate>
-			<!-- Live Preview -->
-
-			<blockquote ng-hide="blockquoteHide">
-				As a <strong> {{story.role}}</strong>  I want 
-				<strong> {{story.goal}}</strong>
-				so that <strong>   {{story.benefit}} </strong>
-			</blockquote>
-			
-			<!--Final template -->
-	
-			<textarea ng-show="finalTextShow" style="width:100%;border:0px solid #ff0000;font-size:16px;text-align:center;"	readonly ng-model="finalText" auto-select="finalTextShow" ng-click="highlightMe($event)"
-			tooltip="{{(finalTextShow) ? 'Press CTRL-C to copy' : ''}}"  tooltip-trigger="select" tooltip-placement="top"> </textarea>
-
-			<h1><hr /></h1>
-
-				<h4>As a </h4>
-				<fieldset class="form-group">
-					<input ng-model="story.role" class="form-control" placeholder="role" title="Role" required  typeahead="role for role in roles | filter:$viewValue"/>
-				</fieldset><h4>I want </h4>
-				<fieldset class="form-group">
-					<textarea ng-model="story.goal" class="form-control" placeholder="goal/desire" title="Goal/Desire" required > </textarea>
-				</fieldset><h4>so that </h4>
-				<fieldset class="form-group">
-					<textarea  ng-model="story.benefit"  class="form-control" placeholder="benefit" 
-					title="Benefit" > </textarea>
-				</fieldset>	
-
-				<fieldset class="form-group">
-					<button ng-click="storyReady()" ng-disabled="isDisable()" class="btn btn-primary btn-lg">Done</button>
-					<button ng-click="reset()" class="btn btn-warning btn-lg">Reset</button>
-				</fieldset>
-		</form>
+		<div ui-view></div>
 
 	<div> <!-- container -->
 
