@@ -8,7 +8,9 @@
                 	return $state.includes(template);
                 		
                 }
-                $rootScope.roles = ['user', 'developer', 'end-user', 'admin', 'teacher', 'engineer', 'artist', 'PO', 'manager', 'doctor', 'vendor', 'scientist'];
+                $rootScope.roles = ['user', 'developer', 'end-user', 'admin', 'teacher',
+                 'engineer', 'artist', 'PO', 'manager', 'doctor', 'vendor', 'scientist',
+                 'contractor','client','customer','geek','hacker','CEO','cashier','journalist'];
 
             }
         ])
@@ -22,7 +24,6 @@
                 $scope.blockquoteHide = false;
                 $scope.finalText = "";
                 $scope.finalTextShow = false;
-               //scope.roles = ['user', 'developer', 'end-user', 'admin', 'teacher', 'engineer', 'artist', 'PO', 'manager', 'doctor', 'vendor', 'scientist'];
                 $scope.storyReady = function() {
                     if ($scope.story.role && $scope.story.goal && $scope.story.benefit) {
                         $scope.finalText = "As a " + $scope.story.role + ", I want " + $scope.story.goal + ", so that " + $scope.story.benefit;
@@ -51,7 +52,6 @@
                 $scope.blockquoteHide = false;
                 $scope.finalText = "";
                 $scope.finalTextShow = false;
-              //$scope.roles = ['user', 'developer', 'end-user', 'admin', 'teacher', 'engineer', 'artist', 'PO', 'manager', 'doctor', 'vendor', 'scientist'];
               	$scope.storyReady = function() {
                     if ($scope.story.role && $scope.story.goal) {
                         $scope.finalText = "As a " + $scope.story.role + ", I want " + $scope.story.goal;
@@ -80,7 +80,6 @@
                 $scope.blockquoteHide = false;
                 $scope.finalText = "";
                 $scope.finalTextShow = false;
-              //$scope.roles = ['user', 'developer', 'end-user', 'admin', 'teacher', 'engineer', 'artist', 'PO', 'manager', 'doctor', 'vendor', 'scientist'];
                 $scope.storyReady = function() {
                     if ($scope.story.role && $scope.story.goal && $scope.story.benefit) {
                         $scope.finalText = "In order to " + $scope.story.benefit + " as a " + $scope.story.role + ", I want " + $scope.story.goal;
@@ -109,7 +108,6 @@
                 $scope.blockquoteHide = false;
                 $scope.finalText = "";
                 $scope.finalTextShow = false;
-               //scope.roles = ['user', 'developer', 'end-user', 'admin', 'teacher', 'engineer', 'artist', 'PO', 'manager', 'doctor', 'vendor', 'scientist'];
                 $scope.storyReady = function() {
                     if ($scope.story.role && $scope.story.when && $scope.story.where && $scope.story.what && $scope.story.why ) {
                         $scope.finalText = "As " + $scope.story.role +" " +$scope.story.when +" " + $scope.story.where + ", I " + $scope.story.what + " because " + $scope.story.why;
@@ -138,7 +136,6 @@
                 var model = $parse(attrs.autoSelect);
                 scope.$watch(model, function(value) {
                     if (value === true) {
-                        console.log(value);
                         element[0].select();
                     }
                 });
