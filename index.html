@@ -1,37 +1,31 @@
 <!doctype html>
 <html lang="en" ng-app="scrumstory">
-<head>
-	<title>Scrum User Story</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
-	<script src="script/angular-ui-router.min.js"></script>
-	<script src="script/app.js"></script>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<style>
-		input:focus{
-			outline: 0;
-		}
-	</style>
-</head>
-<body>
-	<div class="container theme-showcase" role="main">
-		<h1>User Story Template</h1>
-		<h2><hr /></h2>
-		<ul class="nav nav-pills nav-justified">
-			<li><a ui-sref="template1">Template 1</a></li>	
-			<li><a ui-sref="template2">Template 2</a></li>
-			<li><a ui-sref="template3">Template 3</a></li>
-			<li><a ui-sref="template4">Template 4</a></li>
-
-
-
-		</ul>
-		<h2><hr /></h2>
-
-		<div ui-view></div>
-
-	<div> <!-- container -->
-
-</body>
-</html>
+    <head>
+        <title>Scrum User Story</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+        <script src="script/angular-ui-router.min.js"></script>
+        <script src="script/app.js"></script>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <style>
+                        input:focus{
+                        outline: 0;
+                        }
+        </style>
+    </head>
+    <body>
+        <div class="container theme-showcase" role="main">
+            <h1>User Story Template</h1>
+            <h2><hr /></h2>
+            <ul class="nav nav-pills nav-justified">
+                <li ng-class={active:isTemplateSelected("template1")}><a ui-sref="template1">Traditional</a></li>
+                <li ng-class={active:isTemplateSelected("template2")}><a ui-sref="template2">Mike Cohn</a></li>
+                <li ng-class={active:isTemplateSelected("template3")}><a ui-sref="template3">Feature Injection</a></li>
+                <li ng-class={active:isTemplateSelected("template4")}><a ui-sref="template4">Five Ws</a></li>
+            </ul>
+            <h2><hr /></h2>
+            <div ui-view></div>
+            </div> <!-- container -->
+        </body>
+    </html>

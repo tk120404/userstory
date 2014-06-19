@@ -1,0 +1,33 @@
+<form  novalidate>
+    <!-- Live Preview -->
+   
+    <blockquote ng-hide="blockquoteHide">
+        As<strong> {{story.role}} {{story.when}} {{story.where}}</strong>, I
+        <strong> {{story.what}} </strong>
+        because <strong>{{story.why}}</strong>
+    </blockquote>
+    <!--Final template -->
+    <textarea ng-show="finalTextShow" style="width:100%;border:0px solid #ff0000;font-size:16px;text-align:center;"	readonly ng-model="finalText" auto-select="finalTextShow" ng-click="highlightMe($event)"
+    tooltip="{{(finalTextShow) ? 'Press CTRL-C to copy' : ''}}"  tooltip-trigger="select" tooltip-placement="top"> </textarea>
+    <h1><hr /></h1>
+    <h4>As</h4>
+    <fieldset class="form-group">
+        <input ng-model="story.role" class="form-control" placeholder="who" title="Who" required  typeahead="role for role in roles | filter:$viewValue"/>
+    </fieldset>
+    <fieldset class="form-group">
+        <input ng-model="story.when" class="form-control" placeholder="when" title="When" required/>
+    </fieldset>
+    <fieldset class="form-group">
+        <input ng-model="story.where" class="form-control" placeholder="where" title="Where" required/>
+    </fieldset><h4> I</h4>
+    <fieldset class="form-group">
+        <textarea ng-model="story.what" class="form-control" placeholder="what" title="What" required></textarea>
+    </fieldset><h4>because</h4>
+    <fieldset class="form-group">
+        <textarea  ng-model="story.why"  class="form-control" placeholder="why" title="Why" required></textarea>
+    </fieldset>
+    <fieldset class="form-group">
+        <button ng-click="storyReady()" ng-disabled="isDisable()" class="btn btn-primary btn-lg">Done</button>
+        <button ng-click="reset()" class="btn btn-warning btn-lg">Reset</button>
+    </fieldset>
+</form>
