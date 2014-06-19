@@ -1,72 +1,140 @@
-(function(){
-
-	var app = angular.module('scrumstory', ['ui.bootstrap']);
-
-	app.controller('TemplateController',function($scope,$element){
-
-		
-			$scope.story = {};
-			$scope.blockquoteHide=false;
-			$scope.finalText = "";
-			$scope.finalTextShow = false;
-			$scope.roles = ['user','developer','end-user','admin','teacher','engineer','artist','PO','manager','doctor','vendor','scientist'
-							];
-		
-		
-		$scope.isSelected = function(template)
-		{
-		   return $scope.template == template;
-		};
-
-		$scope.setTemplate = function(template)
-		{
-		 $scope.template = template;
-		};
-
-		$scope.storyReady = function()
-		{
-			 if($scope.story.role && $scope.story.goal && $scope.story.benefit)
-				 {
-				 	$scope.finalText = "As a " + $scope.story.role +", I want " + $scope.story.goal +", so that "+$scope.story.benefit;
-				 	$scope.blockquoteHide = true;
-				 	$scope.finalTextShow = true;				 	
-				 }
-		}
-
-		$scope.reset = function()
-		{
-			$scope.story = {};
-			$scope.blockquoteHide=false;
-			$scope.finalText = "";
-			$scope.finalTextShow = false;
-		}
-
-		$scope.isDisable = function()
-		{
-			return !( $scope.story.role && $scope.story.goal && $scope.story.benefit);
-		}
-
-		$scope.highlightMe = function($event)
-		{
-			$event.target.select();
-		}
-	});
-
-
-app.directive('autoSelect', function($timeout,$parse){
-  return {
-      link: function(scope, element, attrs) {
-      var model = $parse(attrs.autoSelect);
-      console.log(model);
-      scope.$watch(model, function(value) {
-      	console.log(value);
-        if(value === true) { 
-            element[0].select();          
-        }
-      });     
-    }
-  };
-});
-
-
+(function() {
+    var app = angular.module('scrumstory', ['ui.bootstrap', 'ui.router']);
+    app.run(
+        ['$rootScope', '$state',
+            function($rootScope, $state) {
+                $rootScope.isTemplateSelected = function(template) {
+                    return $state.includes(template);
+                }
+                $rootScope.roles = ['user', 'developer', 'end-user', 'admin', 'teacher', 'engineer', 'artist', 'PO', 'manager', 'doctor', 'vendor', 'scientist'];
+            }
+        ])
+    app.config(function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("/template1")
+        $stateProvider.state('template1', {
+            url: "/template1",
+            templateUrl: "views/template1.html",
+            controller: function($scope) {
+                $scope.story = {};
+                $scope.blockquoteHide = false;
+                $scope.finalText = "";
+                $scope.finalTextShow = false;
+                $scope.storyReady = function() {
+                    if ($scope.story.role && $scope.story.goal && $scope.story.benefit) {
+                        $scope.finalText = "As a " + $scope.story.role + ", I want " + $scope.story.goal + ", so that " + $scope.story.benefit;
+                        $scope.blockquoteHide = true;
+                        $scope.finalTextShow = true;
+                    }
+                }
+                $scope.reset = function() {
+                    $scope.story = {};
+                    $scope.blockquoteHide = false;
+                    $scope.finalText = "";
+                    $scope.finalTextShow = false;
+                }
+                $scope.isDisable = function() {
+                    return !($scope.story.role && $scope.story.goal && $scope.story.benefit);
+                }
+                $scope.highlightMe = function($event) {
+                    $event.target.select();
+                }
+            }
+        }).state('template2', {
+            url: "/template2",
+            templateUrl: "views/template2.html",
+            controller: function($scope) {
+                $scope.story = {};
+                $scope.blockquoteHide = false;
+                $scope.finalText = "";
+                $scope.finalTextShow = false;
+                $scope.storyReady = function() {
+                    if ($scope.story.role && $scope.story.goal) {
+                        $scope.finalText = "As a " + $scope.story.role + ", I want " + $scope.story.goal;
+                        $scope.blockquoteHide = true;
+                        $scope.finalTextShow = true;
+                    }
+                }
+                $scope.reset = function() {
+                    $scope.story = {};
+                    $scope.blockquoteHide = false;
+                    $scope.finalText = "";
+                    $scope.finalTextShow = false;
+                }
+                $scope.isDisable = function() {
+                    return !($scope.story.role && $scope.story.goal);
+                }
+                $scope.highlightMe = function($event) {
+                    $event.target.select();
+                }
+            }
+        }).state('template3', {
+            url: "/template3",
+            templateUrl: "views/template3.html",
+            controller: function($scope) {
+                $scope.story = {};
+                $scope.blockquoteHide = false;
+                $scope.finalText = "";
+                $scope.finalTextShow = false;
+                $scope.storyReady = function() {
+                    if ($scope.story.role && $scope.story.goal && $scope.story.benefit) {
+                        $scope.finalText = "In order to " + $scope.story.benefit + " as a " + $scope.story.role + ", I want " + $scope.story.goal;
+                        $scope.blockquoteHide = true;
+                        $scope.finalTextShow = true;
+                    }
+                }
+                $scope.reset = function() {
+                    $scope.story = {};
+                    $scope.blockquoteHide = false;
+                    $scope.finalText = "";
+                    $scope.finalTextShow = false;
+                }
+                $scope.isDisable = function() {
+                    return !($scope.story.benefit && $scope.story.role && $scope.story.goal);
+                }
+                $scope.highlightMe = function($event) {
+                    $event.target.select();
+                }
+            }
+        }).state('template4', {
+            url: "/template4",
+            templateUrl: "views/template4.html",
+            controller: function($scope) {
+                $scope.story = {};
+                $scope.blockquoteHide = false;
+                $scope.finalText = "";
+                $scope.finalTextShow = false;
+                $scope.storyReady = function() {
+                    if ($scope.story.role && $scope.story.when && $scope.story.where && $scope.story.what && $scope.story.why) {
+                        $scope.finalText = "As " + $scope.story.role + " " + $scope.story.when + " " + $scope.story.where + ", I " + $scope.story.what + " because " + $scope.story.why;
+                        $scope.blockquoteHide = true;
+                        $scope.finalTextShow = true;
+                    }
+                }
+                $scope.reset = function() {
+                    $scope.story = {};
+                    $scope.blockquoteHide = false;
+                    $scope.finalText = "";
+                    $scope.finalTextShow = false;
+                }
+                $scope.isDisable = function() {
+                    return !($scope.story.role && $scope.story.when && $scope.story.where && $scope.story.what && $scope.story.why);
+                }
+                $scope.highlightMe = function($event) {
+                    $event.target.select();
+                }
+            }
+        })
+    });
+    app.directive('autoSelect', function($parse) {
+        return {
+            link: function(scope, element, attrs) {
+                var model = $parse(attrs.autoSelect);
+                scope.$watch(model, function(value) {
+                    if (value === true) {
+                        element[0].select();
+                    }
+                });
+            }
+        };
+    });
 })();
