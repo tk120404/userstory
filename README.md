@@ -6,4 +6,4 @@ User Story Template
 
 Todo
 ----------
-* Add three more templates for the user story
+* integrate with jira
