@@ -58,7 +58,7 @@
                 $scope.blockquoteHide = false;
                 $scope.finalText = "";
                 $scope.finalTextShow = false;
-                $scope.roles = Roles;
+                $scope.roles = Roles.roles;
 
               	$scope.storyReady = function() {
                     if ($scope.story.role && $scope.story.goal) {
@@ -88,7 +88,7 @@
                 $scope.blockquoteHide = false;
                 $scope.finalText = "";
                 $scope.finalTextShow = false;
-                $scope.roles = Roles;
+                $scope.roles = Roles.roles;
 
                 $scope.storyReady = function() {
                     if ($scope.story.role && $scope.story.goal && $scope.story.benefit) {
@@ -118,7 +118,7 @@
                 $scope.blockquoteHide = false;
                 $scope.finalText = "";
                 $scope.finalTextShow = false;
-                $scope.roles = Roles;
+                $scope.roles = Roles.roles;
 
                 $scope.storyReady = function() {
                     if ($scope.story.role && $scope.story.when && $scope.story.where && $scope.story.what && $scope.story.why ) {
